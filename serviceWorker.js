@@ -1,18 +1,11 @@
 const staticDevCoffee = "dev-coffee-site-v1";
 const assets = [
-  "/",
-  "/index.html",
-  "/css/style.css",
-  "/js/app.js",
-  "/images/coffee1.jpg",
-  "/images/coffee2.jpg",
-  "/images/coffee3.jpg",
-  "/images/coffee4.jpg",
-  "/images/coffee5.jpg",
-  "/images/coffee6.jpg",
-  "/images/coffee7.jpg",
-  "/images/coffee8.jpg",
-  "/images/coffee9.jpg"
+  "https://www.multiproperty.id/",
+  "https://www.multiproperty.id/p/offline.html",
+  "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjNHwM5D8QeeGmjoHuXyuNc4HRW07v9cS2n7v2ueDQSzawEE9bpeNw6VLYtrN-sEibkm1_zoH_tqdbPUsxo1mByoWiz6tauEa3ncWt1atiP2GgqBAmHqxXFP9PBgnXFE1wJW1PfSAsytcAOfR52AfJoSchD_Fhp9iZHTYpsW0WaGwYzT-gTBjW-rVaXJUI/s192/logo-header-multiproperty-id.png",
+  "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjNHwM5D8QeeGmjoHuXyuNc4HRW07v9cS2n7v2ueDQSzawEE9bpeNw6VLYtrN-sEibkm1_zoH_tqdbPUsxo1mByoWiz6tauEa3ncWt1atiP2GgqBAmHqxXFP9PBgnXFE1wJW1PfSAsytcAOfR52AfJoSchD_Fhp9iZHTYpsW0WaGwYzT-gTBjW-rVaXJUI/s256/logo-header-multiproperty-id.png",
+  "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjNHwM5D8QeeGmjoHuXyuNc4HRW07v9cS2n7v2ueDQSzawEE9bpeNw6VLYtrN-sEibkm1_zoH_tqdbPUsxo1mByoWiz6tauEa3ncWt1atiP2GgqBAmHqxXFP9PBgnXFE1wJW1PfSAsytcAOfR52AfJoSchD_Fhp9iZHTYpsW0WaGwYzT-gTBjW-rVaXJUI/s384/logo-header-multiproperty-id.png",
+  "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjNHwM5D8QeeGmjoHuXyuNc4HRW07v9cS2n7v2ueDQSzawEE9bpeNw6VLYtrN-sEibkm1_zoH_tqdbPUsxo1mByoWiz6tauEa3ncWt1atiP2GgqBAmHqxXFP9PBgnXFE1wJW1PfSAsytcAOfR52AfJoSchD_Fhp9iZHTYpsW0WaGwYzT-gTBjW-rVaXJUI/s512/logo-header-multiproperty-id.png"
 ];
 
 self.addEventListener("install", installEvent => {

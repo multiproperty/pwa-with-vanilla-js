@@ -58,6 +58,6 @@
         }
   ],
   "serviceworker": {
-    "src": "https://raw.githack.com/multiproperty/pwa/main/sw.js"
+    "src": "https://raw.githubusercontent.com/multiproperty/pwa-with-vanilla-js/master/serviceWorker.js"
   }
 }

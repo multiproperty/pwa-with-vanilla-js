@@ -59,6 +59,6 @@
         }
   ],
   "serviceworker": {
-    "src": "https://raw.githubusercontent.com/multiproperty/pwa-with-vanilla-js/master/serviceWorker.js"
+    "src": "https://www.multiproperty.id/serviceWorker.js"
   }
 }

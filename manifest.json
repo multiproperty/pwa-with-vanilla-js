@@ -3,6 +3,7 @@
     "background_color": "#fff",
     "display": "standalone",
     "start_url": "https://www.multiproperty.id/",
+    "scope": "/", 
     "prefer_related_applications": false,
     "name": "Multiproperty.id",
     "short_name": "Multiproperty.id",

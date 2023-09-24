@@ -1,25 +1,45 @@
-const staticDevCoffee = "dev-coffee-site-v1";
-const assets = [
-  "https://www.multiproperty.id/",
-  "https://www.multiproperty.id/serviceworker.js",
-  "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjNHwM5D8QeeGmjoHuXyuNc4HRW07v9cS2n7v2ueDQSzawEE9bpeNw6VLYtrN-sEibkm1_zoH_tqdbPUsxo1mByoWiz6tauEa3ncWt1atiP2GgqBAmHqxXFP9PBgnXFE1wJW1PfSAsytcAOfR52AfJoSchD_Fhp9iZHTYpsW0WaGwYzT-gTBjW-rVaXJUI/s192/logo-header-multiproperty-id.png",
-  "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjNHwM5D8QeeGmjoHuXyuNc4HRW07v9cS2n7v2ueDQSzawEE9bpeNw6VLYtrN-sEibkm1_zoH_tqdbPUsxo1mByoWiz6tauEa3ncWt1atiP2GgqBAmHqxXFP9PBgnXFE1wJW1PfSAsytcAOfR52AfJoSchD_Fhp9iZHTYpsW0WaGwYzT-gTBjW-rVaXJUI/s256/logo-header-multiproperty-id.png",
-  "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjNHwM5D8QeeGmjoHuXyuNc4HRW07v9cS2n7v2ueDQSzawEE9bpeNw6VLYtrN-sEibkm1_zoH_tqdbPUsxo1mByoWiz6tauEa3ncWt1atiP2GgqBAmHqxXFP9PBgnXFE1wJW1PfSAsytcAOfR52AfJoSchD_Fhp9iZHTYpsW0WaGwYzT-gTBjW-rVaXJUI/s384/logo-header-multiproperty-id.png",
-  "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjNHwM5D8QeeGmjoHuXyuNc4HRW07v9cS2n7v2ueDQSzawEE9bpeNw6VLYtrN-sEibkm1_zoH_tqdbPUsxo1mByoWiz6tauEa3ncWt1atiP2GgqBAmHqxXFP9PBgnXFE1wJW1PfSAsytcAOfR52AfJoSchD_Fhp9iZHTYpsW0WaGwYzT-gTBjW-rVaXJUI/s512/logo-header-multiproperty-id.png"
-];
+// check if the serviceWorker object exists in the navigator object
+if ('serviceWorker' in navigator) {
 
-self.addEventListener("install", installEvent => {
-  installEvent.waitUntil(
-    caches.open(staticDevCoffee).then(cache => {
-      cache.addAll(assets);
-    })
-  );
-});
+    // attach event listener  on page l aod
+    window.addEventListener('load', function() {
 
-self.addEventListener("fetch", fetchEvent => {
-  fetchEvent.respondWith(
-    caches.match(fetchEvent.request).then(res => {
-      return res || fetch(fetchEvent.request);
-    })
-  );
+        // register serviceWorker withthe [service-worker.js] file
+        navigator.serviceWorker.register('./serviceWorker.js').then(registration => {
+
+            // Registration was successful
+            console.log('ServiceWorker registration successful with scope: ', registration.scope);
+
+        }, function(err) {
+            // registration failed :(
+            console.log('ServiceWorker registration failed: ', err);
+        });
+
+    });
+}
+
+// install event for the service worker
+self.addEventListener('install', e => {
+
+    e.waitUntil(
+        caches.open('site-static').then(cache => {
+            cache.addAll(['/', 'https://github.com/multiproperty/pwa-with-vanilla-js/'])
+        })
+    )
+
+})
+
+
+self.addEventListener("fetch", function(event) {
+    event.respondWith(
+        fetch(event.request).catch(function() {
+            return caches.match(event.request).then(function(response) {
+                if (response) {
+                    return response;
+                } else if (event.request.headers.get("accept").includes("text/html")) {
+                    return caches.match("/p/offline.html");
+                }
+            });
+        })
+    );
 });

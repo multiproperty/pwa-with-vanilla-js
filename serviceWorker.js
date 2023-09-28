@@ -23,7 +23,7 @@ self.addEventListener('install', e => {
 
     e.waitUntil(
         caches.open('site-static').then(cache => {
-            cache.addAll(['/', 'https://github.com/multiproperty/pwa-with-vanilla-js/', '/p/offline.html'])
+            cache.addAll(['https://www.multiproperty.id/', 'https://github.com/multiproperty/pwa-with-vanilla-js/', 'https://www.multiproperty.id/p/offline.html'])
         })
     )
 
@@ -37,7 +37,7 @@ self.addEventListener("fetch", function(event) {
                 if (response) {
                     return response;
                 } else if (event.request.headers.get("accept").includes("text/html")) {
-                    return caches.match("/p/offline.html");
+                    return caches.match("https://www.multiproperty.id/p/offline.html");
                 }
             });
         })

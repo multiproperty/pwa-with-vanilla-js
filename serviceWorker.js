@@ -5,7 +5,7 @@ if ('serviceWorker' in navigator) {
     window.addEventListener('load', function() {
 
         // register serviceWorker withthe [service-worker.js] file
-        navigator.serviceWorker.register('./serviceworker.js').then(registration => {
+        navigator.serviceWorker.register('https://raw.githubusercontent.com/multiproperty/pwa-with-vanilla-js/master/serviceWorker.js').then(registration => {
 
             // Registration was successful
             console.log('ServiceWorker registration successful with scope: ', registration.scope);
@@ -23,7 +23,7 @@ self.addEventListener('install', e => {
 
     e.waitUntil(
         caches.open('site-static').then(cache => {
-            cache.addAll(['/', 'https://github.com/multiproperty/pwa-with-vanilla-js/'])
+            cache.addAll(['/', 'https://github.com/multiproperty/pwa-with-vanilla-js/', '/p/offline.html'])
         })
     )
 

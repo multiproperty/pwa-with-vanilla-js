@@ -1,7 +1,7 @@
 self.addEventListener('install', (e) => {
   e.waitUntil(
     caches.open('fox-store').then((cache) => cache.addAll([
-      'https://www.solarpertamina.com/',
+      'https://www.multiproperty.id/',
     ])),
   );
 });
